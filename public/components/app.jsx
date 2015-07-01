@@ -38,6 +38,7 @@ App.prototype.handleSubmit = function (evt) {
 App.prototype.render = function () {
   var self = this;
   var requests = this.state.requests;
+  var responses = [];
 
   return <div className="container">
     <div className="row">
@@ -48,15 +49,24 @@ App.prototype.render = function () {
     <hr/>
     {
       requests.reverse().map(function (req) {
+        var reqCount = 0;
+        var responses = [];
+        var numRequests = parseInt(req.data.numRequests);
+        if (isNaN(numRequests)) { numRequests = 1; }
+        for(var i=0; i < req.data.numRequests; i++) {
+          responses.push(
+            <div className="row">
+              <div className="col-sm-12">
+                <ResponseData req={ req } />
+              </div>
+            </div>
+          );
+        }
         return <div key={ req.id }>
           <div className="row">
             <RequestForm formData={ req.data } disabled={ true } />
           </div>
-          <div className="row">
-            <div className="col-sm-12">
-              <ResponseData req={ req } />
-            </div>
-          </div>
+          { responses }
           <hr/>
         </div>
       })

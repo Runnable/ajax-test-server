@@ -25,6 +25,12 @@ RequestForm.prototype.render = function () {
   var formData = this.state.formData;
 
   return <form onSubmit={ this.onSubmit }>
+    <div className="col-sm-12">
+      <div className="form-group">
+        <label for="url">URL</label>
+        <input className="form-control" disabled={ disabled } type="text" name="url" value={ formData.url } />
+      </div>
+    </div>
     <div className="col-sm-6">
       <div className="form-group">
         <label for="method">Method</label>
@@ -36,10 +42,6 @@ RequestForm.prototype.render = function () {
         </select>
       </div>
       <div className="form-group">
-        <label for="url">URL</label>
-        <input className="form-control" disabled={ disabled } type="text" name="url" value={ formData.url } />
-      </div>
-      <div className="form-group">
         <label for="body">Body</label>
         <textarea value={ formData.body } className="form-control" disabled={ disabled } rows="4" cols="50" name="body">
         </textarea>
@@ -48,7 +50,7 @@ RequestForm.prototype.render = function () {
     <div className="col-sm-6">
       <div className="form-group">
         <label for="headers">Headers</label>
-        <textarea value={ formData.headers } className="form-control" disabled={ disabled } rows="4" cols="50" name="headers">
+        <textarea value={ formData.headers } className="form-control" disabled={ disabled } rows="2" cols="50" name="headers">
         </textarea>
       </div>
       <div className="checkbox">
