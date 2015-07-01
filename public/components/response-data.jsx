@@ -24,7 +24,7 @@ ResponseData.prototype.createXHR = function (req) {
   // send xhr
   try {
     xhr.open(data.method, data.url, true);
-    xhr.withCredentials = data.withCredentials;
+    xhr.withCredentials = (data.withCredentials === 'on');
     data.headers.split(/\n/g).forEach(function (headerKeyVal) {
       var split = headerKeyVal.split('=');
       var key = split[0] && split[0].trim();
