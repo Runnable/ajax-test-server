@@ -1,0 +1,38 @@
+{
+  "name": "cors-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "app to test cors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t reactify -e ./public/index.jsx -o ./public/bundle.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Runnable/cors-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Runnable/cors-test/issues"
+  },
+  "homepage": "https://github.com/Runnable/cors-test#readme",
+  "dependencies": {
+    "101": "^1.0.0",
+    "cors": "^2.7.1",
+    "dat-middleware": "^1.10.3",
+    "express": "^4.13.0",
+    "express-session": "^1.11.3",
+    "form-to-object": "^2.0.0",
+    "http-proxy": "^1.11.1",
+    "middleware-flow": "^0.8.0",
+    "react": "^0.13.3",
+    "serve-static": "^1.10.0"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "reactify": "^1.1.1"
+  }
+}
