@@ -2,6 +2,7 @@
 
 var React = require('react');
 var put = require('101/put');
+var clone = require('101/clone');
 var RequestForm = require('./request-form.jsx');
 var ResponseData = require('./response-data.jsx');
 var formToObj = require('form-to-object');
@@ -54,10 +55,12 @@ App.prototype.render = function () {
         var numRequests = parseInt(req.data.numRequests);
         if (isNaN(numRequests)) { numRequests = 1; }
         for(var i=0; i < req.data.numRequests; i++) {
+          var uniqueReq = clone(req);
+          uniqueReq.data.url = addQuery(req.data.url, 'uid', i);
           responses.push(
             <div className="row">
               <div className="col-sm-12">
-                <ResponseData req={ req } />
+                <ResponseData req={ uniqueReq } />
               </div>
             </div>
           );
@@ -72,4 +75,9 @@ App.prototype.render = function () {
       })
     }
   </div>;
+}
+
+function addQuery (url, key, val) {
+  var delimeter = (~url.indexOf('?')) ? '&' : '?'
+  return url + delimeter + key + '=' + val;
 }

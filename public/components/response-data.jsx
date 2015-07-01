@@ -34,6 +34,7 @@ ResponseData.prototype.createXHR = function (req) {
       }
     });
     xhr.send(data.body);
+    console.log(req.id, Date.now(), 'sent!');
   }
   catch (e) {
     this.handleError(e);
