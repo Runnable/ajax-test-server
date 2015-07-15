@@ -55,7 +55,7 @@ RequestForm.prototype.render = function () {
       </div>
       <div className="checkbox">
         <label>
-          <input type="checkbox" name="withCredentials" checked={ formData.withCredentials }>withCredentials</input>
+          <input type="checkbox" name="withCredentials" checked={ formData.withCredentials==='on' }>withCredentials</input>
         </label>
       </div>
       <div className="form-group">
